@@ -2,8 +2,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import * as React from "react";
 import './NavbarPantry.css';
-
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 class NavbarPantry extends React.Component {
+
+    state = {
+        redirect: null
+    }
+
+
     render() {
         return(
             this.newNavbar()
@@ -14,11 +20,11 @@ class NavbarPantry extends React.Component {
         return (
             <div className={'navbar'}>
                 <div className={'about navbar-item'} onClick={this.handleAboutRedirect}>
-                    <a className={'navbar-text'} href={'#about'}>About</a>
+                    <a className={'navbar-text'} href={'#about'}><Link to={'/about'}>About</Link></a>
                 </div>
 
                 <div className={'search navbar-item'} onClick={this.handleHomeRedirect}>
-                    <a className={'navbar-text'} href={'#home'}>Search</a>
+                    <a className={'navbar-text'} href={'#home'}><Link to={'/'}>Search</Link></a>
                 </div>
 
                 <div className={'github navbar-item'} onClick={this.handleGithubRedirect}>
@@ -30,11 +36,11 @@ class NavbarPantry extends React.Component {
     }
 
     handleAboutRedirect = () => {
-        window.location.href = '#about';
+        window.location.href = 'about';
     }
 
     handleHomeRedirect = () => {
-        window.location.href = '#home';
+        window.location.href = 'home';
     }
 
     handleGithubRedirect = () => {
